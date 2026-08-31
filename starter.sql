@@ -1,47 +1,43 @@
--- Course and Enrollment JOIN Assignment
+create database college2;
+use college2;
 
--- STEP 1: Create Course table
+create table course(courseid integer(5),coursename varchar(30),credits integer(5));
+desc course;
+insert course values ("201","Database system","4"),("202","Data structure","3"),("203","Mathematics","4");
+select * from course;
 
-CREATE TABLE Course (
-    CourseID INT PRIMARY KEY,
-    CourseName VARCHAR(100),
-    Credits INT
-);
+create table enrollment(enrollmentid integer(5),studentid integer(5),courseid integer(5));
+desc enrollment;
+insert enrollment values("1","1001","201"),("2","1001","202"),("3","1002","203"),("4","1003","201");
+select * from enrollment;
 
-
--- STEP 2: Create Enrollment table
-
-CREATE TABLE Enrollment (
-    EnrollmentID INT PRIMARY KEY,
-    StudentID INT,
-    CourseID INT
-);
+select course.coursename,course.credits,enrollment.enrollmentid,enrollment.studentid from course left join enrollment on course.courseid=enrollment.enrollmentid;
 
 
--- STEP 3: Insert Course records
-
-INSERT INTO Course (CourseID, CourseName, Credits)
-VALUES
-(201, 'Database Systems', 4),
-(202, 'Data Structures', 3),
-(203, 'Mathematics', 4);
 
 
--- STEP 4: Insert Enrollment records
-
-INSERT INTO Enrollment (EnrollmentID, StudentID, CourseID)
-VALUES
-(1, 1001, 201),
-(2, 1001, 202),
-(3, 1002, 203),
-(4, 1003, 201);
 
 
--- STEP 5: Perform LEFT JOIN
--- Display Course information with Enrollment information.
--- Write your LEFT JOIN query below:
 
 
--- STEP 6: Perform RIGHT JOIN
--- Display Course information with Enrollment information.
--- Write your RIGHT JOIN query below:
+
+
+
+
+
+create database college2;
+use college2;
+
+create table course(courseid integer(5),coursename varchar(30),credits integer(5));
+desc course;
+insert course values ("201","Database system","4"),("202","Data structure","3"),("203","Mathematics","4");
+select * from course;
+
+create table enrollment(enrollmentid integer(5),studentid integer(5),courseid integer(5));
+desc enrollment;
+insert enrollment values("1","1001","201"),("2","1001","202"),("3","1002","203"),("4","1003","201");
+select * from enrollment;
+
+select course.coursename,course.credits,enrollment.enrollmentid,enrollment.studentid from course right join enrollment on course.courseid=enrollment.enrollmentid;
+
+
